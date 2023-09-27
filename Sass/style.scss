@@ -1,0 +1,381 @@
+@import url('https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap');
+
+
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    text-decoration: none;
+    list-style: none;
+    scroll-behavior: smooth;
+}
+
+
+.container{
+    width: 1140px;
+    margin: 0 auto;
+}
+
+%center{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+%btn_global{
+    border: none;
+    border-radius: 5px;
+    background: #C9453B;
+    color: #FFF;
+    font-size: 16px;
+    font-weight: 400;
+    cursor: pointer;
+}
+$Roboto:'Roboto', sans-serif;
+$Gelasio:'Gelasio', serif;
+$color:#8a8a8a;
+
+@mixin text_changible($font_size, $font_weight, $font_family){
+    font-size: $font-size;
+    font-weight: $font-weight;
+    font-family: $font-family;
+}
+.header{
+    width: 100%;
+    height: 900px;
+    background: url(../images/header-img.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    background-attachment: fixed;
+    nav{
+        padding: 40px 0;
+        @extend %center;
+        justify-content: space-between;
+        .logo{
+            color: #FFF;
+            @include text_changible(24px, 400, $Gelasio);
+        }
+        ul{
+            display: flex;
+            
+            li a{
+                padding-left: 50px;
+                @include text_changible(18px,500 ,$Roboto );
+                color: #FFF;
+                cursor: pointer;
+                transition: all .5s ease;
+            }
+            li:hover{
+                opacity: 0.7;
+            }
+        }
+        button{
+            padding: 13px 35px;
+            @extend %btn_global;
+        }
+        
+       
+    }
+    .hero{
+        h1{
+            color: #FFF;
+            padding-top: 200px;
+            @include text_changible(65px,700 ,$Gelasio );
+        }
+        p{
+            line-height: 160%;
+            @include text_changible(18px,400 ,$Roboto );
+            color: #FFF;
+            width: 458px;
+            margin-top: 30px
+        }
+        button{
+            @extend %btn_global;
+            padding: 17px 46px;
+            margin-top: 40px;
+        }
+    }
+}
+
+main{
+    width: 100%;
+
+    .locations{
+        width: 100%;
+        padding: 150px 0;
+        text-align: center;
+
+        .title{
+            @include text_changible(43px,500 ,$Gelasio );
+            color: #000;
+            line-height: 140%;
+        }
+        .subtitle{
+            @include text_changible(18px,400,$Roboto );
+            color: #000;
+            margin-top: 20px;
+            line-height: 160%;
+        }
+        ul{
+            @extend %center;
+            margin-top: 50px;
+            justify-content: space-between;
+            li{
+                width: 360px;
+                border-radius: 10px;
+                border: 1px solid rgba(0, 0, 0, 0.10);
+                background: #FFF;
+                h4{
+                    padding-top: 35px;
+                    @include text_changible(24px,500 ,$Gelasio );
+                    color:#000;
+                    line-height: 150%;
+                }
+                p{
+                    @include text_changible(18px,400 ,$Roboto );
+                    line-height: 160%;
+                    opacity: 0.7;
+                    padding:0 13px 33px 13px;
+                }
+            }
+            .location-item.active{
+                box-shadow: 0px 6px 35px 0px rgba(0, 0, 0, 0.08);
+                
+            }           
+    }
+ }
+
+.about{
+    width: 100%;
+    text-align: center;
+    .about-title{
+        @include text_changible(43px,500 ,$Gelasio );
+        color: #000;
+    }
+    .about-subtitle{
+        @include text_changible(18px,400 ,$Roboto );
+        opacity: 0.6;
+        margin-top: 20px;
+    }
+    .about-list{
+        @extend %center;
+        margin: 60px 0;
+        justify-content: space-between;
+
+        .about-item.active{
+            opacity: 0.6;
+        }
+        .about-item{
+            width: 262px;
+            text-align: start;
+
+
+            h5{
+                @include text_changible(24px,500 ,$Gelasio );
+                color: #000;
+                line-height: 150%;
+                margin-top: 20px;
+            }
+            .location-rank{
+                display: flex;
+                align-items: center;
+                gap: 50px;
+                .location-icon{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    p{
+                        @include text_changible(20px,400 ,$Roboto );
+                        color: #000;
+                        opacity: 0.6;
+                    }
+                }
+                .ranking{
+                    display: flex;
+                    align-items: center;
+                    gap: 10px;
+
+                    .ranking-text{
+                        @include text_changible(20px,400 ,$Roboto );
+                        color: #000;
+                        opacity: 0.6;
+                    }
+                }
+            }
+            .days{
+                @include text_changible(18px,400 ,$Roboto );
+                color: #8a8a8a;
+                margin-top: 8px;
+            }
+            p{
+                @include text_changible(18px,400 ,$Roboto );
+                color: #8a8a8a;
+                margin-top: 8px
+            }
+            span{
+                @include text_changible(20px,500 ,$Roboto );
+                color: #000;
+            }
+        
+        }
+    }
+    .about-next{
+        margin-top: 60px;
+        @extend %center;
+        gap: 50px;
+    }
+ }
+ .blog{
+    padding: 142px 0;
+    text-align: center;
+    .title{
+        @include text_changible(43px,500 ,$Gelasio );
+        color: #000;
+        line-height: 140%;
+    }
+    .subtitle{
+        @include text_changible(18px,400,$Roboto );
+        color: #000;
+        margin-top: 20px;
+        line-height: 160%;
+    }
+    .blog-content{
+        width: 100%;
+        margin-top: 56px;
+        display: flex;
+        gap: 32px;
+        .blog-left{
+            width: 554px;
+        }
+        .blog-left-info{
+              margin-top: 35px; 
+              text-align: left; 
+              h4{
+                @include text_changible(20px,500 ,$Gelasio );
+                color: #000;
+                line-height: 160%;
+              }
+              p{
+                @include text_changible(18px,400 ,$Roboto );
+                color: #000;
+                opacity: 0.6;
+                margin: 10px 0;
+                line-height: 160%;
+              }
+        }
+        .blog-right{
+            display: grid;
+            grid-template-columns: 528px;
+            grid-area: 263px 263px 263px;
+            gap: 30px;
+            .box{
+                text-align: left;
+                display: flex;
+                gap: 27px;
+            }
+            .box-info{
+                h4{
+                    @include text_changible(20px,500 ,$Gelasio );
+                    color: #000;
+                    line-height: 160%;
+                    padding-top: 32px
+                
+                  }
+                  p{
+                    @include text_changible(18px,400 ,$Roboto );
+                    color: #000;
+                    opacity: 0.6;
+                    margin: 10px 0;
+                    width: 243px;
+                  }
+                  h6{
+                    @include text_changible(20px,400 ,$Roboto );
+                    color: #000;
+                    opacity: 0.8;
+                    margin: 10px 0;
+                  }
+            }
+        }
+    }
+ }
+}
+footer{
+    background: rgba(38, 148, 153, 0.04);
+
+    .footer-wrap{
+        padding:75px 0;
+        display: flex;
+        justify-content: space-between;
+        .contact-item{
+            @include text_changible(16px,400 ,$Roboto );
+            line-height: 160%;
+            letter-spacing: 0.96px;
+            color: #000
+        }
+        .contact-item.logo{
+            @include text_changible(24px ,400 ,$Gelasio );
+            color: #000;
+            line-height: 150%;
+            letter-spacing: 1.44px;
+            margin-bottom: 40px;
+        }
+        .contact-item.links{
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .services{
+
+            li{
+                @include text_changible(16px,500 ,$Roboto );
+                color: #000;
+                line-height: 150%;
+                letter-spacing: 0.96px;
+                margin-bottom: 20px;
+                cursor: pointer
+            }
+        }
+        .legal{
+            li{
+                @include text_changible(16px,500 ,$Roboto );
+                color: #000;
+                line-height: 150%;
+                letter-spacing: 0.96px;
+                margin-bottom: 20px;
+                cursor: pointer;
+            }
+        }
+        .subscribe{
+           
+            h4{
+                @include text_changible(20px,500 ,$Roboto );
+                color: #000;
+                line-height: 150%;
+                letter-spacing: 1.2px;
+            }
+            .submit{
+                margin-top: 40px;
+                input{
+                   border-radius: 5px;
+                   width: 195px;
+                   height: 44px;
+                   border: 1px solid #000;
+                   opacity: 0.1;
+                   @include text_changible(16px,400 ,$Roboto );
+                   line-height: 150%;
+                   letter-spacing: .96px;
+                   cursor: pointer;
+                   box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
+               }
+               button{
+                   @extend %btn_global;
+                   padding: 10px 32px;
+                   margin-left: 35px;
+                   cursor: pointer;
+               }
+            }
+        }
+    }
+
+}
