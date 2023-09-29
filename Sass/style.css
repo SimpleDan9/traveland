@@ -1,3 +1,4 @@
+@import url(./header/header.css);
 @import url("https://fonts.googleapis.com/css2?family=Gelasio:ital,wght@0,500;0,600;0,700;1,400&family=Roboto:wght@300;400;500;700&display=swap");
 * {
   padding: 0;
@@ -9,17 +10,17 @@
 }
 
 .container {
-  width: 1140px;
+  width: 90%;
   margin: 0 auto;
 }
 
-main .about .about-next, main .about .about-list, main .locations ul, .header nav {
+main .about .about-next, main .about .about-list, .header nav {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-footer .footer-wrap .subscribe .submit button, .header .hero button, .header nav button {
+.header .hero button, .header nav button {
   border: none;
   border-radius: 5px;
   background: #C9453B;
@@ -39,7 +40,7 @@ footer .footer-wrap .subscribe .submit button, .header .hero button, .header nav
   background-attachment: fixed;
 }
 .header nav {
-  padding: 40px 0;
+  padding: 40px 10%;
   justify-content: space-between;
 }
 .header nav .logo {
@@ -66,12 +67,21 @@ footer .footer-wrap .subscribe .submit button, .header .hero button, .header nav
 .header nav button {
   padding: 13px 35px;
 }
+.header nav .bar {
+  color: #FFF;
+  font-size: 20px;
+  display: none;
+}
+.header .hero {
+  padding: 0 10%;
+}
 .header .hero h1 {
   color: #FFF;
   padding-top: 200px;
   font-size: 65px;
   font-weight: 700;
   font-family: "Gelasio", serif;
+  animation-delay: 0.7s;
 }
 .header .hero p {
   line-height: 160%;
@@ -79,12 +89,18 @@ footer .footer-wrap .subscribe .submit button, .header .hero button, .header nav
   font-weight: 400;
   font-family: "Roboto", sans-serif;
   color: #FFF;
-  width: 458px;
   margin-top: 30px;
+  animation-delay: 1.5s;
 }
 .header .hero button {
   padding: 17px 46px;
   margin-top: 40px;
+  animation-delay: 2s;
+}
+.header .hero .anim {
+  opacity: 0;
+  transform: translateY(50px);
+  animation: moveup 0.5s linear forwards;
 }
 
 main {
@@ -93,7 +109,6 @@ main {
 main .locations {
   width: 100%;
   padding: 150px 0;
-  text-align: center;
 }
 main .locations .title {
   font-size: 43px;
@@ -101,6 +116,7 @@ main .locations .title {
   font-family: "Gelasio", serif;
   color: #000;
   line-height: 140%;
+  text-align: center;
 }
 main .locations .subtitle {
   font-size: 18px;
@@ -109,18 +125,27 @@ main .locations .subtitle {
   color: #000;
   margin-top: 20px;
   line-height: 160%;
+  text-align: center;
 }
-main .locations ul {
+main .locations .location-content {
+  display: flex;
+  justify-content: center;
+}
+main .locations .location-content ul {
+  display: flex;
   margin-top: 50px;
-  justify-content: space-between;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
-main .locations ul li {
+main .locations .location-content ul li {
   width: 360px;
   border-radius: 10px;
   border: 1px solid rgba(0, 0, 0, 0.1);
   background: #FFF;
+  text-align: center;
 }
-main .locations ul li h4 {
+main .locations .location-content ul li h4 {
   padding-top: 35px;
   font-size: 24px;
   font-weight: 500;
@@ -128,7 +153,7 @@ main .locations ul li h4 {
   color: #000;
   line-height: 150%;
 }
-main .locations ul li p {
+main .locations .location-content ul li p {
   font-size: 18px;
   font-weight: 400;
   font-family: "Roboto", sans-serif;
@@ -136,7 +161,7 @@ main .locations ul li p {
   opacity: 0.7;
   padding: 0 13px 33px 13px;
 }
-main .locations ul .location-item.active {
+main .locations .location-content ul .location-item.active {
   box-shadow: 0px 6px 35px 0px rgba(0, 0, 0, 0.08);
 }
 main .about {
@@ -159,6 +184,7 @@ main .about .about-subtitle {
 main .about .about-list {
   margin: 60px 0;
   justify-content: space-between;
+  flex-wrap: wrap;
 }
 main .about .about-list .about-item.active {
   opacity: 0.6;
@@ -166,6 +192,7 @@ main .about .about-list .about-item.active {
 main .about .about-list .about-item {
   width: 262px;
   text-align: start;
+  margin-bottom: 20px;
 }
 main .about .about-list .about-item h5 {
   font-size: 24px;
@@ -313,82 +340,108 @@ main .blog .blog-content .blog-right .box-info h6 {
   margin: 10px 0;
 }
 
-footer {
-  background: rgba(38, 148, 153, 0.04);
+@keyframes moveup {
+  100% {
+    opacity: 1;
+    transform: translateY(0px);
+  }
 }
-footer .footer-wrap {
-  padding: 75px 0;
-  display: flex;
-  justify-content: space-between;
+@media (min-width: 990px) and (max-width: 1300px) {
+  .header {
+    width: 100%;
+  }
+  .header nav button {
+    display: none;
+  }
+  .header .hero {
+    padding: 0 5%;
+  }
 }
-footer .footer-wrap .contact-item {
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "Roboto", sans-serif;
-  line-height: 160%;
-  letter-spacing: 0.96px;
-  color: #000;
+@media (min-width: 770px) and (max-width: 1000px) {
+  .header {
+    width: 100%;
+    height: 700px;
+  }
+  .header nav ul li a {
+    display: none;
+  }
+  .header nav button {
+    display: none;
+  }
+  .header nav .bar {
+    display: block;
+  }
+  .header .hero {
+    text-align: center;
+  }
+  .header .hero h1 {
+    padding-top: 10%;
+    font-size: 60px;
+  }
 }
-footer .footer-wrap .contact-item.logo {
-  font-size: 24px;
-  font-weight: 400;
-  font-family: "Gelasio", serif;
-  color: #000;
-  line-height: 150%;
-  letter-spacing: 1.44px;
-  margin-bottom: 40px;
+@media (min-width: 500px) and (max-width: 770px) {
+  .header {
+    width: 100%;
+  }
+  .header nav ul li a {
+    display: none;
+  }
+  .header nav button {
+    display: none;
+  }
+  .header nav .bar {
+    display: block;
+  }
+  .header .hero {
+    text-align: center;
+  }
+  .header .hero h1 {
+    font-size: 40px;
+  }
 }
-footer .footer-wrap .contact-item.links {
-  margin-top: 20px;
-  cursor: pointer;
+@media (max-width: 500px) {
+  .header {
+    width: 100%;
+    height: 600px;
+  }
+  .header nav ul li a {
+    display: none;
+  }
+  .header nav button {
+    display: none;
+  }
+  .header nav .bar {
+    display: block;
+  }
+  .header .hero {
+    text-align: center;
+  }
+  .header .hero h1 {
+    padding-top: 10%;
+    font-size: 30px;
+  }
+  .header .hero p {
+    font-size: 14px;
+  }
+  .header .hero button {
+    font-size: 14px;
+  }
 }
-footer .footer-wrap .services li {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  color: #000;
-  line-height: 150%;
-  letter-spacing: 0.96px;
-  margin-bottom: 20px;
-  cursor: pointer;
+@media (max-width: 500px) {
+  .locations .title {
+    font-size: 30px;
+  }
+  .locations .subtitle {
+    font-size: 15px;
+  }
 }
-footer .footer-wrap .legal li {
-  font-size: 16px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  color: #000;
-  line-height: 150%;
-  letter-spacing: 0.96px;
-  margin-bottom: 20px;
-  cursor: pointer;
-}
-footer .footer-wrap .subscribe h4 {
-  font-size: 20px;
-  font-weight: 500;
-  font-family: "Roboto", sans-serif;
-  color: #000;
-  line-height: 150%;
-  letter-spacing: 1.2px;
-}
-footer .footer-wrap .subscribe .submit {
-  margin-top: 40px;
-}
-footer .footer-wrap .subscribe .submit input {
-  border-radius: 5px;
-  width: 195px;
-  height: 44px;
-  border: 1px solid #000;
-  opacity: 0.1;
-  font-size: 16px;
-  font-weight: 400;
-  font-family: "Roboto", sans-serif;
-  line-height: 150%;
-  letter-spacing: 0.96px;
-  cursor: pointer;
-  box-shadow: 0 0 10px 10px rgba(0, 0, 0, 0.15);
-}
-footer .footer-wrap .subscribe .submit button {
-  padding: 10px 32px;
-  margin-left: 35px;
-  cursor: pointer;
+@media (max-width: 1320px) {
+  .about {
+    width: 100%;
+  }
+  .about .about-list {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+  }
 }/*# sourceMappingURL=style.css.map */
